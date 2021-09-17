@@ -18,7 +18,6 @@ let map = L.map('mapid').setView([37.6213, -122.3790], 5);
 //     [47.4502, -122.3088]
 //   ];
 
-<<<<<<< HEAD
 // let line = [ 
 // [33.9416, -118.4085],        
 // [30.2026,  -97.6681],
@@ -26,15 +25,6 @@ let map = L.map('mapid').setView([37.6213, -122.3790], 5);
 // [43.6777,  -79.6248],       
 // [40.6417,  -73.7809]
 // ];
-=======
-let line = [
-        [33.9416, -118.4085],        
-        [30.2026,  -97.6681],
-        [43.1919,  -89.4557], 
-        [43.6777,  -79.6248],       
-        [40.6417,  -73.7809]
-      ];
->>>>>>> eb1727bf7830c9bd6a3692f87c1872e649bbab96
 
     
 // Create a polyline using the line coordinates and make the line red.
@@ -42,16 +32,10 @@ let line = [
 //     color: "blue"
 //   }).addTo(map);
 
-<<<<<<< HEAD
 // // Create a polyline using the line coordinates and make the dashed line blue with opacity of 5
 // L.polyline(line, {
 //     color: "blue", weight:'4', opacity: 0.5, dashArray:'10,10', dashOffset: '0'
 //   }).addTo(map);
-=======
-L.polyline(line, {
-    color: "blue", weight:'4', opacity: 0.5, dashArray:'10,10', dashOffset: '0'
-  }).addTo(map);
->>>>>>> eb1727bf7830c9bd6a3692f87c1872e649bbab96
 
 //  Add a marker to the map for Los Angeles, California.
 // let marker = L.marker([34.0522, -118.2437]).addTo(map);
@@ -63,11 +47,7 @@ L.polyline(line, {
 //  marker.setStyle({color: 'orange'}) 
 
 // Get data from cities.js
-<<<<<<< HEAD
 // let cityData = cities;
-=======
-let cityData = cities;
->>>>>>> eb1727bf7830c9bd6a3692f87c1872e649bbab96
 
 // Loop through the cities array and create one marker for each city.
 // cityData.forEach(function(city) {
@@ -94,11 +74,6 @@ let cityData = cities;
 //     });
     
 
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> eb1727bf7830c9bd6a3692f87c1872e649bbab96
 // We create the tile layer that will be the background of our map.
 // Night
 // let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
