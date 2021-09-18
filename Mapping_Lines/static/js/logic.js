@@ -47,7 +47,7 @@ let map = L.map('mapid').setView([37.6213, -122.3790], 5);
 //  marker.setStyle({color: 'orange'}) 
 
 // Get data from cities.js
-// let cityData = cities;
+let cityData = cities;
 
 // Loop through the cities array and create one marker for each city.
 // cityData.forEach(function(city) {
