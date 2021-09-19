@@ -1,4 +1,4 @@
-// 13.6.3 Add console.log to check to see if our code is working.
+// 13.6.4 Add console.log to check to see if our code is working.
 console.log("working");
 
 // We create the tile layer that will be the background of our map.
@@ -21,6 +21,15 @@ let baseMaps = {
   "Satellite": satelliteStreets
 };
 
+// Create the earthquake layer for our map.
+let earthquakes = new L.layerGroup();
+
+// We define an object that contains the overlays.
+// This overlay will be visible all the time.
+let overlays = {
+  Earthquakes: earthquakes
+};
+
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
   center: [39.5, -98.5],
@@ -28,8 +37,9 @@ let map = L.map('mapid', {
   layers: [streets]
 });
 
-// Pass our map layers into our layers control and add the layers control to the map.
-L.control.layers(baseMaps).addTo(map);
+// Then we add a control to the map that will allow the user to change
+// which layers are visible.
+L.control.layers(baseMaps, overlays).addTo(map);
 
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
@@ -37,7 +47,6 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 L.geoJson(data, {
 
 // We turn each feature into a circleMarker on the map.
-
 pointToLayer: function(feature, latlng) {
             console.log(data);
             return L.circleMarker(latlng);
@@ -49,7 +58,10 @@ pointToLayer: function(feature, latlng) {
     onEachFeature: function(feature, layer) {
     layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
     }
-  }).addTo(map);
+  }).addTo(earthquakes);
+
+  // Then we add the earthquakes layer to our map
+  earthquakes.addTo(map);
 });
 
 // This function returns the style data for each of the earthquakes we plot on
@@ -97,22 +109,3 @@ function getRadius(magnitude) {
 }
 
 
-// // Create a style for the lines.
-// let myStyle = {
-//   color: "blue",
-//   weight: 1,
-//   fillColor: "#ffff1a"
-// }
-
-// ///Grabbing our GeoJSON data.
-// d3.json(torontoHoods).then(function(data) {
-//   console.log(data);
-//   L.geoJson(data, {
-//     style:myStyle,
-//     onEachFeature: function(feature, layer) {
-//       layer.bindPopup("<h3> Neighborhood: " + feature.properties.AREA_NAME + "</h3>");
-//     }  
-//   })
-// // Creating a GeoJSON layer with the retrieved data.
-// .addTo(map);
-// });
