@@ -52,16 +52,6 @@ pointToLayer: function(feature, latlng) {
   }).addTo(map);
 });
 
-
-
-
-
-
-
-
-
-
-
 // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into a function
 // to calculate the radius.
